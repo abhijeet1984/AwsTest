@@ -20,7 +20,7 @@ public class RestService {
 	@Path("/Rest")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String sayHello(@QueryParam("name") String uName){
-		return "Hello to User :"+uName ;
+		return "Hello to new User :"+uName ;
 	}
 
 }
