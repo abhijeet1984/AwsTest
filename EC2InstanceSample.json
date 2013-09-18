@@ -49,14 +49,6 @@
     "PrivateIP" : {
       "Description" : "Private IP address of the newly created EC2 instance",
       "Value" : { "Fn::GetAtt" : [ "Ec2Instance", "PrivateIp" ] }
-    },
-    "PublicDNS" : {
-      "Description" : "Public DNSName of the newly created EC2 instance",
-      "Value" : { "Fn::GetAtt" : [ "Ec2Instance", "PublicDnsName" ] }
-    },
-    "PrivateDNS" : {
-      "Description" : "Private DNSName of the newly created EC2 instance",
-      "Value" : { "Fn::GetAtt" : [ "Ec2Instance", "PrivateDnsName" ] }
     }
   }
 }
