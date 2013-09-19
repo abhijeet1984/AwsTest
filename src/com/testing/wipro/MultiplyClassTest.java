@@ -44,7 +44,7 @@ public class MultiplyClassTest {
 		int test =multi.divison(35,7);
 		//assertTrue(test==35);
 		//assertTrue("Success", test==35);
-		assertTrue("Suc", test!=5);
+		assertTrue("Suc", test==5);
 		//fail("Not yet implemented");
 		
 	}

@@ -1,0 +1,73 @@
+<project name="PROJECT_NAME" default="dist">
+ 
+    <property name="classes" location="build/classes"/>
+    <property name="test-classes" location="build/test-classes"/>
+    <property name="test-reports" location="build/test-reports"/>
+ 
+    <path id="classpath">
+        
+        <fileset dir="WebContent/WEB-INF/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+ 
+    <path id="test-classpath">
+        <path refid="classpath"/>
+        <pathelement location="${classes}"/>
+        <pathelement location="${test-classes}"/>
+        
+    </path>
+ 
+    <target name="clean">
+        <delete dir="dist"/>
+        <delete dir="build"/>
+    </target>
+ 
+    <target name="compile" >
+        <mkdir dir="${classes}"/>
+        <javac destdir="${classes}" includeantruntime="false">
+            <classpath refid="classpath"/>
+            <src path="src"/>
+            
+        </javac>
+        <copy todir="${classes}">
+            <fileset dir="src" excludes="**/*.java"/>
+        </copy>
+    </target>
+ 
+    <target name="test-compile" depends="compile" >
+        <mkdir dir="${test-classes}"/>
+        <javac destdir="${test-classes}" includeantruntime="false">
+            
+            <src path="src/com/testing"/>
+            <classpath refid="test-classpath"/>
+        </javac>
+    </target>
+ 
+    <target name="test" depends="test-compile">
+        <mkdir dir="${test-reports}"/>
+        <junit printsummary="yes">
+            <classpath refid="test-classpath"/>
+            <formatter type="brief" usefile="false"/>
+            <formatter type="xml"/>
+            <batchtest todir="${test-reports}" failureproperty="failed"
+                       errorproperty="failed">
+                <fileset dir="${test-classes}" includes="**/*Test.class"/>
+            </batchtest>
+        </junit>
+    </target>
+ 
+    <tstamp>
+        <format property="timestamp" pattern="yyyy-MM-dd_hh-mm"/>
+    </tstamp>
+ 
+    <target name="dist" depends="clean, compile, test">
+        <mkdir dir="dist"/>
+        <war destfile="dist/${ant.project.name}_${timestamp}.war"
+             basedir="WebContent"
+             excludes="**/CVS">
+            <classes dir="${classes}"/>
+        </war>
+    </target>
+ 
+</project>

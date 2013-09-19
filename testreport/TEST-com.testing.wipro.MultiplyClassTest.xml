@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="0" hostname="L-156028172" name="com.testing.wipro.MultiplyClassTest" skipped="0" tests="1" time="0.0" timestamp="2013-09-19T13:45:06">
+  <properties>
+    <property name="ant.project.invoked-targets" value="move" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.boot.library.path" value="D:\Java\jdk1.6.0_23\jre\bin" />
+    <property name="java.vm.version" value="19.0-b09" />
+    <property name="ant.library.dir" value="E:\apache-ant-1.9.2\lib" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.2 compiled on July 8 2013" />
+    <property name="ant.java.version" value="1.6" />
+    <property name="java.vm.vendor" value="Sun Microsystems Inc." />
+    <property name="java.vendor.url" value="http://java.sun.com/" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="user.country" value="US" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.os.patch.level" value="Service Pack 1" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="user.dir" value="E:\MyGitWS\RestGit" />
+    <property name="java.runtime.version" value="1.6.0_23-b05" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="basedir" value="E:\MyGitWS\RestGit" />
+    <property name="java.endorsed.dirs" value="D:\Java\jdk1.6.0_23\jre\lib\endorsed" />
+    <property name="os.arch" value="x86" />
+    <property name="ant.project.default-target" value="move" />
+    <property name="java.io.tmpdir" value="C:\Users\ab277176\AppData\Local\Temp\" />
+    <property name="ant.core.lib" value="E:\apache-ant-1.9.2\lib\ant.jar" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="user.variant" value="" />
+    <property name="ant.file.type.RestTest" value="file" />
+    <property name="os.name" value="Windows 7" />
+    <property name="ant.home" value="E:\apache-ant-1.9.2" />
+    <property name="ant.project.name" value="RestTest" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="java.library.path" value="D:\Java\jdk1.6.0_23\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.6.0_23\BIN;C:\Program Files\TortoiseSVN\bin;D:\apache-maven-3.0.3\BIN;D:\Softwares\pigtutorial\pigtmp\BIN;.;C:\Ruby187\BIN;D:\Softwares\AutoScaling-1.0.61.0\bin;.;D:\Softwares\AutoScaling-1.0.61.0;D:\Softwares\pigtutorial\pigtmp\bin;.;D:\cygwin\bin;E:\apache-ant-1.9.2\BIN;D:\Softwares\AutoScaling-1.0.61.0\bin;D:\ICG\CLI-Training\ec2-api-tools-1.6.7.1\BIN;C:\Program Files\OpenVPN\bin;E:\Santosh\mongodb-win32-i386-2.4.2\BIN;C:\Program Files\Git\cmd;E:\apache-ant-1.9.2\bin;C:\Ruby193\bin" />
+    <property name="Tomcat_Deploy_Home" value="/root/apache-tomcat-6.0.35/webapps/" />
+    <property name="java.class.version" value="50.0" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="test.report.dir" value="E:\MyGitWS\RestGit\testreport" />
+    <property name="sun.management.compiler" value="HotSpot Client Compiler" />
+    <property name="os.version" value="6.1" />
+    <property name="ant.file" value="E:\MyGitWS\RestGit\build.xml" />
+    <property name="user.home" value="C:\Users\ab277176" />
+    <property name="user.timezone" value="" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="java.specification.version" value="1.6" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="java.class.path" value="E:\apache-ant-1.9.2\lib\ant-launcher.jar;D:\Softwares\pigtutorial\pigtmp\pig.jar;E:\MyGitWS\RestGit\.\;D:\Softwares\pigtutorial\pigtmp;D:\Java\jdk1.6.0_23\lib\;E:\MyGitWS\RestGit\.\;E:\apache-ant-1.9.2\lib\ant-antlr.jar;E:\apache-ant-1.9.2\lib\ant-apache-bcel.jar;E:\apache-ant-1.9.2\lib\ant-apache-bsf.jar;E:\apache-ant-1.9.2\lib\ant-apache-log4j.jar;E:\apache-ant-1.9.2\lib\ant-apache-oro.jar;E:\apache-ant-1.9.2\lib\ant-apache-regexp.jar;E:\apache-ant-1.9.2\lib\ant-apache-resolver.jar;E:\apache-ant-1.9.2\lib\ant-apache-xalan2.jar;E:\apache-ant-1.9.2\lib\ant-commons-logging.jar;E:\apache-ant-1.9.2\lib\ant-commons-net.jar;E:\apache-ant-1.9.2\lib\ant-jai.jar;E:\apache-ant-1.9.2\lib\ant-javamail.jar;E:\apache-ant-1.9.2\lib\ant-jdepend.jar;E:\apache-ant-1.9.2\lib\ant-jmf.jar;E:\apache-ant-1.9.2\lib\ant-jsch.jar;E:\apache-ant-1.9.2\lib\ant-junit.jar;E:\apache-ant-1.9.2\lib\ant-junit4.jar;E:\apache-ant-1.9.2\lib\ant-launcher.jar;E:\apache-ant-1.9.2\lib\ant-netrexx.jar;E:\apache-ant-1.9.2\lib\ant-swing.jar;E:\apache-ant-1.9.2\lib\ant-testutil.jar;E:\apache-ant-1.9.2\lib\ant.jar;D:\Java\jdk1.6.0_23\lib\tools.jar" />
+    <property name="user.name" value="AB277176" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="java.home" value="D:\Java\jdk1.6.0_23\jre" />
+    <property name="sun.arch.data.model" value="32" />
+    <property name="user.language" value="en" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file.RestTest" value="E:\MyGitWS\RestGit\build.xml" />
+    <property name="java.version" value="1.6.0_23" />
+    <property name="java.ext.dirs" value="D:\Java\jdk1.6.0_23\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+    <property name="sun.boot.class.path" value="D:\Java\jdk1.6.0_23\jre\lib\resources.jar;D:\Java\jdk1.6.0_23\jre\lib\rt.jar;D:\Java\jdk1.6.0_23\jre\lib\sunrsasign.jar;D:\Java\jdk1.6.0_23\jre\lib\jsse.jar;D:\Java\jdk1.6.0_23\jre\lib\jce.jar;D:\Java\jdk1.6.0_23\jre\lib\charsets.jar;D:\Java\jdk1.6.0_23\jre\lib\modules\jdk.boot.jar;D:\Java\jdk1.6.0_23\jre\classes" />
+    <property name="java.vendor" value="Sun Microsystems Inc." />
+    <property name="deploy.dir" value="/root/apache-tomcat-6.0.35/webapps/" />
+    <property name="file.separator" value="\" />
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="ant.file.type" value="file" />
+    <property name="sun.desktop" value="windows" />
+    <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86" />
+  </properties>
+  <error message="com.testing.wipro.MultiplyClassTest" type="java.lang.ClassNotFoundException">java.lang.ClassNotFoundException: com.testing.wipro.MultiplyClassTest
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:248)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:247)
+</error>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -2,12 +2,18 @@
 <project name="RestTest" default="move">
 <property file="build.properties" />
 <property name="deploy.dir"      					value="${Tomcat_Deploy_Home}"/>
+ <property name="test.report.dir" location="testreport" />
 
 	<path id="compile.classpath">
 		<fileset dir="WebContent/WEB-INF/lib">
 			<include name="*.jar"/>
 		</fileset>
 	</path>
+	
+	 <path id="junit.class.path">
+    <pathelement location="WebContent/WEB-INF/lib/junit.jar" />
+    <pathelement location="${build.dir}" />
+  </path>
 	
 	<target name="init">
 		<mkdir dir="build/classes"/>
@@ -18,9 +24,21 @@
 		<javac destdir="build/classes" debug="true" srcdir="src" includeantruntime="false">
 			<classpath refid="compile.classpath"/>
 		</javac>
+		
+	</target>
+	<target name="junit" depends="compile">
+	<junit printsummary="on" fork="no" haltonfailure="yes">
+      <classpath refid="junit.class.path" />
+      <formatter type="xml" />
+      <batchtest todir="${test.report.dir}">
+        <fileset dir="src">
+          <include name="**/*Test*.java" />
+        </fileset>
+      </batchtest>
+    </junit>
 	</target>
 	
-	<target name="war" depends="compile">
+	<target name="war" depends="compile,junit">
 		<war destfile="dist/RestTest.war" webxml="WebContent/WEB-INF/web.xml">
 			<fileset dir="WebContent"/>
 			<lib dir="WebContent/WEB-INF/lib"/>
