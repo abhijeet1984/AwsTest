@@ -1,58 +1,73 @@
-<?xml version="1.0" ?> 
-<project name="RestTest" default="move">
-<property file="build.properties" />
-<property name="deploy.dir"      					value="${Tomcat_Deploy_Home}"/>
- <property name="test.report.dir" location="testreport" />
-
-	<path id="compile.classpath">
-		<fileset dir="WebContent/WEB-INF/lib">
-			<include name="*.jar"/>
-		</fileset>
-	</path>
-	
-	 <path id="junit.class.path">
-    <pathelement location="WebContent/WEB-INF/lib/junit.jar" />
-    <pathelement location="${build.dir}" />
-  </path>
-	
-	<target name="init">
-		<mkdir dir="build/classes"/>
-		<mkdir dir="dist" />
-	</target>
-	
-	<target name="compile" depends="init" >
-		<javac destdir="build/classes" debug="true" srcdir="src" includeantruntime="false">
-			<classpath refid="compile.classpath"/>
-		</javac>
-		
-	</target>
-	<target name="junit" depends="compile">
-	<junit printsummary="on" fork="no" haltonfailure="yes">
-      <classpath refid="junit.class.path" />
-      <formatter type="xml" />
-      <batchtest todir="${test.report.dir}">
-        <fileset dir="src">
-          <include name="**/*Test*.java" />
+<project name="PROJECT_NAME" default="dist">
+ 
+    <property name="classes" location="build/classes"/>
+    <property name="test-classes" location="build/test-classes"/>
+    <property name="test-reports" location="build/test-reports"/>
+ 
+    <path id="classpath">
+        
+        <fileset dir="WebContent/WEB-INF/lib">
+            <include name="*.jar"/>
         </fileset>
-      </batchtest>
-    </junit>
-	</target>
-	
-	<target name="war" depends="compile,junit">
-		<war destfile="dist/RestTest.war" webxml="WebContent/WEB-INF/web.xml">
-			<fileset dir="WebContent"/>
-			<lib dir="WebContent/WEB-INF/lib"/>
-			<classes dir="build/classes"/>
-		</war>
-	</target>
-	
-		<target name="move" depends="war">
-		<copy file="dist/RestTest.war" tofile="${deploy.dir}" overwrite="true" />
-	</target>
-	
-	<target name="clean">
-		<delete dir="dist" />
-		<delete dir="build" />
-	</target>
-	
+    </path>
+ 
+    <path id="test-classpath">
+        <path refid="classpath"/>
+        <pathelement location="${classes}"/>
+        <pathelement location="${test-classes}"/>
+        
+    </path>
+ 
+    <target name="clean">
+        <delete dir="dist"/>
+        <delete dir="build"/>
+    </target>
+ 
+    <target name="compile" >
+        <mkdir dir="${classes}"/>
+        <javac destdir="${classes}" includeantruntime="false">
+            <classpath refid="classpath"/>
+            <src path="src"/>
+            
+        </javac>
+        <copy todir="${classes}">
+            <fileset dir="src" excludes="**/*.java"/>
+        </copy>
+    </target>
+ 
+    <target name="test-compile" depends="compile" >
+        <mkdir dir="${test-classes}"/>
+        <javac destdir="${test-classes}" includeantruntime="false">
+            
+            <src path="src/com/testing"/>
+            <classpath refid="test-classpath"/>
+        </javac>
+    </target>
+ 
+    <target name="test" depends="test-compile">
+        <mkdir dir="${test-reports}"/>
+        <junit printsummary="yes">
+            <classpath refid="test-classpath"/>
+            <formatter type="brief" usefile="false"/>
+            <formatter type="xml"/>
+            <batchtest todir="${test-reports}" failureproperty="failed"
+                       errorproperty="failed">
+                <fileset dir="${test-classes}" includes="**/*Test.class"/>
+            </batchtest>
+        </junit>
+    </target>
+ 
+    <tstamp>
+        <format property="timestamp" pattern="yyyy-MM-dd_hh-mm"/>
+    </tstamp>
+ 
+    <target name="dist" depends="clean, compile, test">
+        <mkdir dir="dist"/>
+        <war destfile="dist/${ant.project.name}_${timestamp}.war"
+             basedir="WebContent"
+             excludes="**/CVS">
+            <classes dir="${classes}"/>
+        </war>
+    </target>
+ 
 </project>
