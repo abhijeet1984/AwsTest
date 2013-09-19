@@ -1,4 +1,4 @@
-<project name="PROJECT_NAME" default="dist">
+<project name="RestTest" default="dist">
  
     <property name="classes" location="build/classes"/>
     <property name="test-classes" location="build/test-classes"/>
