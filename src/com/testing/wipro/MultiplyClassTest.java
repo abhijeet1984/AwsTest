@@ -5,7 +5,7 @@ package com.testing.wipro;
 
 import static org.junit.Assert.*;
 
-import org.jboss.util.loading.MyClassLoaderClassLoaderSource;
+
 import org.junit.Before;
 import org.junit.Test;
 import com.learning.wipro.*;
