@@ -1,5 +1,7 @@
 <?xml version="1.0" ?> 
-<project name="RestTest" default="war">
+<project name="RestTest" default="move">
+<property file="build.properties" />
+<property name="deploy.dir"      					value="${Tomcat_Deploy_Home}"/>
 
 	<path id="compile.classpath">
 		<fileset dir="WebContent/WEB-INF/lib">
@@ -24,6 +26,10 @@
 			<lib dir="WebContent/WEB-INF/lib"/>
 			<classes dir="build/classes"/>
 		</war>
+	</target>
+	
+		<target name="move" depends="war">
+		<copy file="dist/RestTest.war" tofile="${deploy.dir}" overwrite="true" />
 	</target>
 	
 	<target name="clean">
