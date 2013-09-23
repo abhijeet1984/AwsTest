@@ -1,6 +1,7 @@
 <project name="PROJECT_NAME" default="dist">
- 
-    <property name="classes" location="build/classes"/>
+	<property name="ipAddress"  value="${JenkinsStack_PublicIP}">
+	<property name="instanceId"  value="${JenkinsStack_InstanceId}">
+	<property name="classes" location="build/classes"/>
     <property name="test-classes" location="build/test-classes"/>
     <property name="test-reports" location="build/test-reports"/>
  
@@ -21,6 +22,8 @@
     <target name="clean">
         <delete dir="dist"/>
         <delete dir="build"/>
+		<echo message="** 			Cloudformation Public ip : 	${JenkinsStack_PublicIP}			   **" />
+		<echo message="** 			CloudFormation : 	${JenkinsStack_InstanceId}			   **" />
     </target>
  
     <target name="compile" >

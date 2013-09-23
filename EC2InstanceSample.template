@@ -12,7 +12,7 @@
 
   "Mappings" : {
     "RegionMap" : {
-      "us-east-1"      : { "AMI" : "ami-7f418316" },
+      "us-east-1"      : { "AMI" : "ami-d0f89fb9" },
       "us-west-1"      : { "AMI" : "ami-951945d0" },
       "us-west-2"      : { "AMI" : "ami-16fd7026" },
       "eu-west-1"      : { "AMI" : "ami-24506250" },
@@ -28,11 +28,24 @@
       "Properties" : {
         "KeyName" : { "Ref" : "KeyName" },
         "ImageId" : { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "AMI" ]},
+		"SecurityGroupIds" : {"Ref" :"InstanceSecurityGroup},
         "UserData" : { "Fn::Base64" : "80" }
       }
     }
   },
-
+,
+     "InstanceSecurityGroup" : {
+   "Type" : "AWS::EC2::SecurityGroup",
+   "Properties" : {
+     "GroupDescription" : "Enable SSH access via port 22",
+     "SecurityGroupIngress" : [ {
+       "IpProtocol" : "tcp",
+       "FromPort" : "22",
+       "ToPort" : "22",
+       "CidrIp" : "0.0.0.0/0"
+     } ]
+   }
+ },
   "Outputs" : {
     "InstanceId" : {
       "Description" : "InstanceId of the newly created EC2 instance",
@@ -49,6 +62,14 @@
     "PrivateIP" : {
       "Description" : "Private IP address of the newly created EC2 instance",
       "Value" : { "Fn::GetAtt" : [ "Ec2Instance", "PrivateIp" ] }
+    },
+    "PublicDNS" : {
+      "Description" : "Public DNSName of the newly created EC2 instance",
+      "Value" : { "Fn::GetAtt" : [ "Ec2Instance", "PublicDnsName" ] }
+    },
+    "PrivateDNS" : {
+      "Description" : "Private DNSName of the newly created EC2 instance",
+      "Value" : { "Fn::GetAtt" : [ "Ec2Instance", "PrivateDnsName" ] }
     }
   }
 }
