@@ -1,4 +1,4 @@
-<project name="PROJECT_NAME" default="dist">
+<project name="AwsSample" default="dist">
 	<property name="ipAddress"  value="${JenkinsStack_PublicIP}"/>
 	<property name="instanceId"  value="${JenkinsStack_InstanceId}"/>
 	<property name="classes" location="build/classes"/>
