@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="http://localhost:8080/PAASRest/mobile/App/AddUser" method="Post">
+	<form action="http://ec2-54-225-125-154.compute-1.amazonaws.com:9000/PAASRest/mobile/App/AddUser" method="Post">
 		FName : <input type="text" name="fName">
 		<br>
 		<br>
