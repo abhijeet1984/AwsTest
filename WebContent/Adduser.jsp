@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="http://ec2-54-225-125-154.compute-1.amazonaws.com:9000/PAASRest/mobile/App/AddUser" method="Post">
+	<form action="http://ec2-54-225-125-154.compute-1.amazonaws.com:9000/AwsSample/mobile/App/AddUser" method="Post">
 		FName : <input type="text" name="fName">
 		<br>
 		<br>
